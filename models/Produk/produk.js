@@ -23,6 +23,10 @@ const Produk = db.define('produk', {
     stokProduk: {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+    kategoriProduk: {
+        type: DataTypes.ENUM('makanan', 'minuman'),
+        allowNull: true
     }
 }, {
     freezeTableName: true
