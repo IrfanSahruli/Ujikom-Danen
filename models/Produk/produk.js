@@ -25,7 +25,7 @@ const Produk = db.define('produk', {
         allowNull: true
     },
     kategoriProduk: {
-        type: DataTypes.ENUM('makanan', 'minuman'),
+        type: DataTypes.ENUM('makanan', 'minuman','snack'),
         allowNull: true
     }
 }, {
