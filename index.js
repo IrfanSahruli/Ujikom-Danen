@@ -7,6 +7,8 @@ const path = require("path");
 const db = require('./config/db');
 const Produk = require('./models/Produk/produk');
 const User = require('./models/User/user');
+const Transaksi = require('./models/Transaksi/transaksi');
+const TransaksiProduk = require('./models/Transaksi/transaksiProduk');
 const Routes = require('./routes//routes');
 
 dotenv.config();
