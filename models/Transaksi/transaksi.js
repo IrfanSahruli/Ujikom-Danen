@@ -17,7 +17,19 @@ const Transaksi = db.define('transaksi', {
             key: 'id'
         }
     },
-    totalPembayaran: {
+    tanggalTransaksi: {
+        type: DataTypes.DATEONLY,
+        allowNull: true
+    },
+    subTotal: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
+    totalBayar: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
+    kembalian: {
         type: DataTypes.INTEGER,
         allowNull: true
     }
