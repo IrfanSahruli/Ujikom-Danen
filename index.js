@@ -32,7 +32,7 @@ app.use('/api', Routes);
 
 db.authenticate().then(async () => {
     console.log('Database berhasil konek');
-    // await db.sync({ alter: true });
+    await db.sync({ alter: true });
 }).catch(err => console.log(`Error: ${err}`));
 
 app.listen(process.env.PORT, () => {
