@@ -8,7 +8,7 @@ const db = require("../../config/db");
 const createTransaksi = async (req, res) => {
   const t = await db.transaction();
   try {
-    const { produk, totalBayar, kembalian } = req.body;
+    const { produk, totalBayar, kembalian, catatan } = req.body;
     const userId = req.user.id;
     const username = req.user.username;
 
@@ -52,6 +52,7 @@ const createTransaksi = async (req, res) => {
         subTotal: totalSubTotal,
         totalBayar,
         kembalian,
+        catatan,
       },
       { transaction: t }
     );
@@ -83,6 +84,7 @@ const createTransaksi = async (req, res) => {
       subTotal: transaksi.subTotal,
       totalBayar: transaksi.totalBayar,
       kembalian: transaksi.kembalian,
+      catatan: transaksi.catatan,
       produk: transaksiProdukData,
     });
   } catch (error) {
