@@ -32,6 +32,10 @@ const Transaksi = db.define('transaksi', {
     kembalian: {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+    catatan: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     freezeTableName: true
