@@ -93,42 +93,6 @@ const createTransaksi = async (req, res) => {
   }
 };
 
-const updatePembayaran = async (req, res) => {
-  const { id } = req.params;
-  const { totalBayar } = req.body;
-
-  try {
-    const transaksi = await Transaksi.findByPk(id);
-    if (!transaksi) {
-      return res.status(404).json({ message: "Transaksi tidak ditemukan" });
-    }
-
-    if (totalBayar < transaksi.subTotal) {
-      return res
-        .status(400)
-        .json({ message: "Total bayar tidak boleh kurang dari subTotal" });
-    }
-
-    const kembalian = totalBayar - transaksi.subTotal;
-
-    await transaksi.update({
-      totalBayar,
-      kembalian,
-    });
-
-    return res.status(200).json({
-      id: transaksi.id,
-      userId: transaksi.userId,
-      tanggalTransaksi: transaksi.tanggalTransaksi,
-      subTotal: transaksi.subTotal,
-      totalBayar,
-      kembalian,
-    });
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
-};
-
 const getAllTransaksi = async (req, res) => {
   try {
     const transaksiList = await Transaksi.findAll({
@@ -258,7 +222,6 @@ const getTransaksiByFilter = async (req, res) => {
 
 module.exports = {
   createTransaksi,
-  updatePembayaran,
   getAllTransaksi,
   getTransaksiById,
   getRiwayatTransaksi,
